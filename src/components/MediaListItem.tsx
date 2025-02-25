@@ -1,16 +1,19 @@
+import {NavigationProp, ParamListBase} from '@react-navigation/native';
 import {MediaItemWithOwner} from 'hybrid-types/DBTypes';
-import {Image, Text, View, StyleSheet, TouchableOpacity} from 'react-native';
+import {Image, Text, StyleSheet, TouchableOpacity} from 'react-native';
 
 type MediaItemProps = {
   item: MediaItemWithOwner;
+  navigation: NavigationProp<ParamListBase>;
 };
 
-const MediaListItem = ({item}: MediaItemProps) => {
+const MediaListItem = ({item, navigation}: MediaItemProps) => {
   return (
     <TouchableOpacity
       style={styles.container}
       onPress={() => {
         console.log(item.title + ' painettu!');
+        navigation.navigate('Single');
       }}
     >
       <Image
