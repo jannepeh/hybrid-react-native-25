@@ -7,6 +7,7 @@ import Single from '../views/Single';
 import {Icon} from '@rneui/base';
 import {useUserContext} from '../hooks/ContextHooks';
 import Login from '../views/Login';
+import MyFiles from '../views/MyFiles';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -22,8 +23,7 @@ const TabScreen = () => {
           } else if (route.name === 'My Profile') {
             iconName = 'person';
           }
-          // You can return any component that you like here!
-          //return <Ionicons name={iconName} size={size} color={color} />;
+
           return <Icon name={iconName} size={size} color={color} />;
         },
         tabBarActiveTintColor: 'blue',
@@ -52,6 +52,7 @@ const StackScreen = () => {
             options={{headerShown: false}}
           />
           <Stack.Screen name="Single" component={Single} />
+          <Stack.Screen name="My Files" component={MyFiles} />
         </>
       ) : (
         <Stack.Screen name="My media app - login" component={Login} />
