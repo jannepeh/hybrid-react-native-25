@@ -51,6 +51,13 @@ This is the working version of the mobile version of the media-sharing app. It i
 
 2. Navigate to the project directory
 
-```sh
-cd hybrid-react-native-25
-```
+  ```sh
+  cd hybrid-react-native-25
+  ```
+
+3. Install dependencies:
+
+  ```sh
+  npm i
+  ```
+
