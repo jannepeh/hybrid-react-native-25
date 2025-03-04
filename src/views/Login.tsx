@@ -18,18 +18,16 @@ const Login = () => {
   }, []);
 
   return (
-    <>
-      <ScrollView>
-        {displayRegister ? (
-          <RegisterForm setDisplayRegister={setDisplayRegister} />
-        ) : (
-          <LoginForm />
-        )}
-        <Button onPress={toggleRegister}>
-          or {displayRegister ? 'login' : 'register'}?
-        </Button>
-      </ScrollView>
-    </>
+    <ScrollView>
+      {displayRegister ? (
+        <RegisterForm setDisplayRegister={setDisplayRegister} />
+      ) : (
+        <LoginForm />
+      )}
+      <Button onPress={toggleRegister}>
+        or {displayRegister ? 'login' : 'register'}?
+      </Button>
+    </ScrollView>
   );
 };
 
