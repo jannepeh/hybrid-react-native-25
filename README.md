@@ -23,11 +23,11 @@ This is the working version of the mobile version of the media-sharing app. It i
 
 ### Home Screen
 
-![Home Screen](screenshots/IMG_0312.png)
+![Home Screen](screenshots/frontpage.png)
 
 ### Single Screen
 
-![Single Screen](screenshots/IMG_0313.png)
+![Single Screen](screenshots/single-page.png)
 
 ### My Profile
 
@@ -40,6 +40,10 @@ This is the working version of the mobile version of the media-sharing app. It i
 ### Single screen of video
 
 ![Single screen of video](screenshots/IMG_0316.png)
+
+## New photo uploaded
+
+![New photo uploaded](screenshots/uploaded-photo.png)
 
 ## Installation
 
