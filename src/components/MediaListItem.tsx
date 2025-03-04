@@ -1,35 +1,51 @@
-import {NavigationProp, ParamListBase} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {MediaItemWithOwner} from 'hybrid-types/DBTypes';
-import {Image, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  useWindowDimensions,
+  View,
+} from 'react-native';
+import {NavigatorType} from '../types/LocalTypes';
+import Likes from './Likes';
 
 type MediaItemProps = {
   item: MediaItemWithOwner;
-  navigation: NavigationProp<ParamListBase>;
+  itemHeight: number;
 };
 
-const MediaListItem = ({item, navigation}: MediaItemProps) => {
+const MediaListItem = ({item, itemHeight}: MediaItemProps) => {
+  const navigation = useNavigation<NativeStackNavigationProp<NavigatorType>>();
+  const {width} = useWindowDimensions();
+
   return (
     <TouchableOpacity
-      style={styles.container}
+      style={[styles.container, {height: itemHeight, width: width}]}
       onPress={() => {
-        console.log(item.title + ' painettu!');
+        console.log(item.title + ' clicked');
         navigation.navigate('Single', {item});
       }}
     >
       <Image
-        source={{
-          uri:
-            item.thumbnail || (item.screenshots && item.screenshots[2]) || '',
-        }}
         style={styles.image}
+        source={{
+          uri: item.thumbnail || undefined,
+        }}
+        onError={(e) => console.log(e)}
       />
-
-      <Text>{item.title}</Text>
-      <Text>{item.description}</Text>
-      <Text>
-        Uploaded: {new Date(item.created_at).toLocaleString('fi-FI')}by:{' '}
-        {item.username}
-      </Text>
+      <View style={styles.textContainer}>
+        <View>
+          <Text style={styles.title}>{item.title}</Text>
+          <Text style={styles.info}>
+            Uploaded: {new Date(item.created_at).toLocaleString('fi-FI')} by:{' '}
+            {item.username}
+          </Text>
+        </View>
+        <Likes item={item} />
+      </View>
     </TouchableOpacity>
   );
 };
@@ -37,16 +53,34 @@ const MediaListItem = ({item, navigation}: MediaItemProps) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'aqua',
-    marginBottom: 5,
-    display: 'flex',
-    alignItems: 'center',
-    padding: 10,
+    backgroundColor: '#FFF',
+    padding: 0,
+    justifyContent: 'space-between',
   },
-
   image: {
-    width: 300,
-    height: 300,
+    flex: 1,
+    width: '100%',
+    resizeMode: 'cover',
+  },
+  textContainer: {
+    padding: 10,
+    position: 'absolute',
+    bottom: 0,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 5,
+    color: '#FFF',
+  },
+  info: {
+    fontSize: 14,
+    color: '#FFF',
   },
 });
 

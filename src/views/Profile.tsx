@@ -1,6 +1,5 @@
-import {Button, Card, Icon, ListItem} from '@rneui/base';
+import {Button, Card, Icon, ListItem, Text} from '@rneui/base';
 import {useUserContext} from '../hooks/ContextHooks';
-import {Text} from 'react-native';
 import {NavigationProp, ParamListBase} from '@react-navigation/native';
 
 const Profile = ({navigation}: {navigation: NavigationProp<ParamListBase>}) => {
