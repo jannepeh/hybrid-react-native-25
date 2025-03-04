@@ -44,6 +44,13 @@ This is the working version of the mobile version of the media-sharing app. It i
 ## Installation
 
 1. Clone the repository:
+
    ```sh
    git clone https://github.com/jannepeh/hybrid-react-native-25
    ```
+
+2. Navigate to the project directory
+
+```sh
+cd hybrid-react-native-25
+```
