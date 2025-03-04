@@ -28,6 +28,7 @@ This is the working version of the mobile version of the media-sharing app. It i
 ### Single Screen
 
 ![Single Screen](screenshots/single-photo.png)
+![Single Screen](screenshots/single-page.png)
 
 ### My Profile
 
@@ -40,6 +41,10 @@ This is the working version of the mobile version of the media-sharing app. It i
 ### Single screen of video
 
 ![Single screen of video](screenshots/IMG_0316.png)
+
+## New photo uploaded
+
+![New photo uploaded](screenshots/uploaded-photo.png)
 
 ### Upload page
 
